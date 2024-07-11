@@ -9,7 +9,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/egonik-unlp/spotify-to-youtube/spotify-to-youtube/spotify_auth"
+	"github.com/egonik-unlp/spotify-to-youtube/spotify_auth"
 	"github.com/zmb3/spotify"
 	"google.golang.org/api/googleapi"
 	"google.golang.org/api/youtube/v3"
@@ -186,8 +186,9 @@ func main() {
 							if e.Code == 409 {
 								fmt.Printf("No se pudo insertar %v", insertItem.Snippet.ResourceId)
 							}
+						} else {
+							log.Fatalf("no se pudo insertar %v", err)
 						}
-						log.Fatalf("no se pudo insertar %v", err)
 					}
 
 					// results = append(results, item.Snippet.Title)
